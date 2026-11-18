@@ -1,0 +1,13 @@
+---
+- hosts: target
+  become: yes
+
+  tasks:
+    - name: Install useful packages
+      apt:
+        name:
+          - curl
+          - vim
+          - tree
+        state: present
+        update_cache: yes
