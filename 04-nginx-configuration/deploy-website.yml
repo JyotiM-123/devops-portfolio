@@ -1,0 +1,18 @@
+---
+- hosts: target
+  become: yes
+
+  tasks:
+
+    - name: Copy custom homepage
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
