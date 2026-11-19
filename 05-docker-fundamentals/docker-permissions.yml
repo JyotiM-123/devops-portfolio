@@ -1,0 +1,10 @@
+---
+- hosts: target
+  become: yes
+
+  tasks:
+    - name: Add ubuntu user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
